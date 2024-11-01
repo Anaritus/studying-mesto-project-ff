@@ -173,9 +173,11 @@ function handleFormSubmitAdd(evt) {
       newCardTitle.value = "";
       newCardLink.value = "";
       closeModal(evt.target.closest(".popup"));
-      renderLoading(evt, false);
     })
-    .catch((err) => console.log(`Ошибка ${err}`));
+    .catch((err) => console.log(`Ошибка ${err}`))
+    .finally(() => {
+      renderLoading(evt, false);
+    });
 }
 
 function handleFormSubmitAvatar(evt) {
